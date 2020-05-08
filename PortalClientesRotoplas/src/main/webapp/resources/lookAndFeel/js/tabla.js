@@ -650,39 +650,6 @@ var inpescIngreso = [{
 },
 ];
 
-var dataEstCuenta = [{
-  tipoDocumento: "Nota de Credito",
-  Npedido: "0410040814",
-  ordenDeCompra: "507228",
-  factSap: "3100041617",
-  factFiscal: "8A36FE79-E5A2-40C1-A31C-6E0B9FC7F3A7",
-  xml: "",
-  pdf: "",
-  facturaRelac: "1100537766",
-  UUid: "C8368D94-6021-494E-A44E-B308F5BFFE03",
-  fechaFact: "11/02/2020",
-  vencimiento: "11/02/2020",
-  diasMora: "3",
-  importe: "$2500",
-  estatus: "VENCIDO"
-}, {
-  tipoDocumento: "Factura",
-  Npedido: "0000598133",
-  ordenDeCompra: "507175",
-  factSap: "1100529741",
-  factFiscal: "CAFDDCF0-792B-4803-A417-372A891F451F ",
-  xml: "",
-  pdf: "",
-  facturaRelac: "90187898",
-  UUid: "C8368D94-6021-494E-A44E-B308F5BF2FE03",
-  fechaFact: "12/02/2020",
-  vencimiento: "13/02/2020",
-  diasMora: "13",
-  importe: "$22,500",
-  estatus: "A VENCER"
-}
-]
-
 $(document).ready(function () {
   var $expampleDT = null;
   var $example2 = null;
@@ -882,8 +849,8 @@ $(document).ready(function () {
         { data: "ordenDeCompra", class: "colorLetra1" },
         { data: "factSap", class: "colorLetra1" },
         { data: "factFiscal", class: "colorLetra1" },
-        { "defaultContent": '<button type="button" class="btn btn-primary btn-xs">XML</button>' },
-        { "defaultContent": '<button type="button" class="btn btn-danger btn-xs">PDF</button>' },
+        { data: "xml" },
+        { data: "pdf" },
         { data: "facturaRelac", class: "colorLetra1" },
         { data: "UUid", class: "colorLetra1" },
         { data: "fechaFact", class: "colorLetra1" },
@@ -895,7 +862,20 @@ $(document).ready(function () {
       columnDefs: [{
         targets: -1,
         className: "dt-body-right",
-      },],
+      },
+		{
+		  targets: 5,
+		  render: function (data, type, row, meta) {
+		    return '<a type="button" target="_blank" class="btn btn-primary btn-xs btn_Action" href="' + row.xml + '">XML</a>';
+		  }
+		},
+		{
+		  targets: 6,
+		  render: function (data, type, row, meta) {
+		    return '<a type="button" target="_blank" class="btn btn-danger btn-xs btn_Action" href="' + row.pdf + '">PDF</a>';
+		  }
+		}
+      ],
       fnRowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
         if (iDisplayIndex % 2 == 0) {
           $("td", nRow).css("background-color", "rgb(0,144,208,.3)");
