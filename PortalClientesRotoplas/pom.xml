@@ -14,7 +14,7 @@
 		<spring.framework.version>4.0.2.RELEASE</spring.framework.version>
 		<spring.version>4.0.2.RELEASE</spring.version>
 		<spring.data.jpa.version>1.5.0.RELEASE</spring.data.jpa.version>
-		<spring.security.version>4.0.2.RELEASE</spring.security.version>
+		<spring.security.version>5.3.3.RELEASE</spring.security.version>
 		<jpa.version>1.0.0.Final</jpa.version>
 		<hibernate.entitymanager.version>4.2.3.Final</hibernate.entitymanager.version>		
 		<org.slf4j-version>1.6.6</org.slf4j-version>
